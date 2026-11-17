@@ -1,0 +1,22 @@
+@BASE_URL = http://127.0.0.1:5000
+
+###
+POST {{BASE_URL}}/payments/pix
+Content-Type: application/json
+
+{
+	"value": 5432.10
+}
+
+###
+GET {{BASE_URL}}/payments/pix/qr_code/qr_code_payment_43d60410-d9fd-438d-b9c4-8e784d341d98
+Content-Type: image/png
+
+###
+POST {{BASE_URL}}/payments/pix/confirmation
+Content-Type: application/json
+
+{
+	"bank_payment_id": "43d60410-d9fd-438d-b9c4-8e784d341d98",
+	"value": 5432.10
+}
